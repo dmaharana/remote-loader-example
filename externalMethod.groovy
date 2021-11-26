@@ -5,4 +5,13 @@ def lookAtThis(String whoAreYou) {
    echo "Look at this, ${whoAreYou}! You loaded this from another file!"
 }
 
+def getLastSuccessfulCommitId() {
+    def lastSuccesfulBuild = build.previousNotFailedBuild
+    def failed = build.result != hudson.model.Result.SUCCESS
+
+    println "Last Succesful Build: ${lastSuccesfulBuild}"
+    println "Current Build Result, is failed?: ${failed}"
+
+}
+
 return this;
