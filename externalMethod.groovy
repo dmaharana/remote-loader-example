@@ -12,8 +12,9 @@ def lookAtThis(String whoAreYou) {
    echo "Look at this, ${whoAreYou}! You loaded this from another file!"
 }
 
-def get_commit_id(jobUrl) {
+def getLastSuccessfulCommitId(jobUrl) {
     def apiUrl = "$jobUrl/api/json?tree=actions[lastBuiltRevision[SHA1]]&depth=3"
+    println("apiUrl: $apiUrl")
 
     def getResp = httpRequest httpMode: 'GET', url: apiUrl
     if (getResp.status != 200) {
