@@ -13,9 +13,9 @@ def lookAtThis(String whoAreYou) {
 }
 
 def get_commit_id(jobUrl) {
-    def jobUrl = "$jobUrl/api/json?tree=actions[lastBuiltRevision[SHA1]]&depth=3"
+    def apiUrl = "$jobUrl/api/json?tree=actions[lastBuiltRevision[SHA1]]&depth=3"
 
-    def getResp = httpRequest httpMode: 'GET', url: jobUrl
+    def getResp = httpRequest httpMode: 'GET', url: apiUrl
     if (getResp.status != 200) {
         error ("ERROR: Could not find last successful job")
     }
