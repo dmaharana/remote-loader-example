@@ -13,7 +13,7 @@ def lookAtThis(String whoAreYou) {
 }
 
 def getLastSuccessfulCommitId(jobUrl) {
-    def apiUrl = "$jobUrl/api/json?tree=actions[lastBuiltRevision[SHA1]]&depth=3"
+    def apiUrl = "$jobUrl/lastSuccessfulBuild/api/json?tree=actions[lastBuiltRevision[SHA1]]&depth=3"
     println("apiUrl: $apiUrl")
 
     def getResp = httpRequest httpMode: 'GET', url: apiUrl
