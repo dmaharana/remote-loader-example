@@ -1,3 +1,10 @@
+import com.tikal.jenkins.plugins.multijob.*
+import hudson.*
+import hudson.model.*
+import hudson.plugins.git.*
+import hudson.slaves.*
+import hudson.tasks.*
+
 // def myVar = build.getEnvironment(listener).get('myVar')
 
 // Methods in this file will end up as object methods on the object that load returns.

@@ -1,6 +1,6 @@
 node('master') {
     cleanWs()
-    sh 'git clone https://github.com/dmaharana/remote-loader-example.git .'
+    sh 'git clone --depth 1 https://github.com/dmaharana/remote-loader-example.git .'
     
     // Load file from the current directory:
     def externalMethod = load("externalMethod.groovy")
