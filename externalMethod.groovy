@@ -13,11 +13,12 @@ def lookAtThis(String whoAreYou) {
 }
 
 def getLastSuccessfulCommitId() {
-    def lastSuccesfulBuild = build.previousNotFailedBuild
-    def failed = build.result != hudson.model.Result.SUCCESS
+   def build = this.getProperty('binding').getVariable('build')
+   def lastSuccesfulBuild = build.previousNotFailedBuild
+   def failed = build.result != hudson.model.Result.SUCCESS
 
-    println "Last Succesful Build: ${lastSuccesfulBuild}"
-    println "Current Build Result, is failed?: ${failed}"
+   println "Last Succesful Build: ${lastSuccesfulBuild}"
+   println "Current Build Result, is failed?: ${failed}"
 
 }
 
