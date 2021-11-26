@@ -4,7 +4,8 @@ node('master') {
     
     // Load file from the current directory:
     def externalMethod = load("externalMethod.groovy")
-    externalMethod.getLastSuccessfulCommitId()
+    lastShaId = externalMethod.getLastSuccessfulCommitId(env.JOB_URL)
+    println("Last Successful SHA1: $lastShaId")
     externalMethod.lookAtThis("Steve")
 
     def externalCall = load("externalCall.groovy")
